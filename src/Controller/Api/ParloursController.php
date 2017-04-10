@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller\Api;
 use App\Controller\Api\AppController;
-class ArtistsController extends AppController
+class ParloursController extends AppController
 {
     public $paginate = [
         'page' => 1,

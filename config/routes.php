@@ -46,6 +46,9 @@ Router::defaultRouteClass(DashedRoute::class);
 Router::prefix('api', function ($routes) {
     $routes->extensions(['json', 'xml']);
     $routes->resources('Artists');
+	$routes->resources('Parlours');
+	$routes->resources('Posts');
+	$routes->resources('Tags');
 });
 
 

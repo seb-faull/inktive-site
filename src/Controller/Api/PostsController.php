@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller\Api;
 use App\Controller\Api\AppController;
-class ArtistsController extends AppController
+class PostsController extends AppController
 {
     public $paginate = [
         'page' => 1,
@@ -9,3 +9,4 @@ class ArtistsController extends AppController
         'maxLimit' => 500
     ];
 }
+
