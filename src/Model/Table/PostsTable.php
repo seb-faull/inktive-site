@@ -22,12 +22,6 @@ use Cake\Validation\Validator;
 class PostsTable extends Table
 {
 
-    /**
-     * Initialize method
-     *
-     * @param array $config The configuration for the Table.
-     * @return void
-     */
     public function initialize(array $config)
     {
         parent::initialize($config);
@@ -40,6 +34,8 @@ class PostsTable extends Table
             'foreignKey' => 'artist_id',
             'joinType' => 'INNER'
         ]);
+		// this function is used to get and insert the file information into the database
+		$this->addBehavior('Timestamp');
     }
 
     /**
@@ -55,7 +51,6 @@ class PostsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->integer('file_name')
             ->requirePresence('file_name', 'create')
             ->notEmpty('file_name');
 
@@ -75,4 +70,5 @@ class PostsTable extends Table
 
         return $rules;
     }
-}
+	
+	}
