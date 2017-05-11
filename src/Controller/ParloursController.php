@@ -36,7 +36,7 @@ class ParloursController extends AppController
         $parlour = $this->Parlours->get($id, [
             'contain' => ['Artists']
         ]);
-		
+
         $this->set('parlour', $parlour);
         $this->set('_serialize', ['parlour']);
     }

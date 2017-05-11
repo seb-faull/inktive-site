@@ -47,14 +47,12 @@ class ArtistsTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->hasMany('Posts', [
-            'foreignKey' => 'artist_id',
-			'joinType' => 'INNER'
+            'foreignKey' => 'artist_id'
         ]);
         $this->belongsToMany('Tags', [
             'foreignKey' => 'artist_id',
             'targetForeignKey' => 'tag_id',
-            'joinTable' => 'artists_tags',
-			'joinType' => 'INNER'
+            'joinTable' => 'artists_tags'
         ]);
     }
 
