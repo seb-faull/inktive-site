@@ -43,7 +43,6 @@ class ArtistsController extends AppController
         $this->set('artist', $artist);
         $this->set('_serialize', ['artist']);
     }
-
     /**
      * Add method
      *
