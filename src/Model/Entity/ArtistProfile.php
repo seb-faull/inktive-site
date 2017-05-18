@@ -2,6 +2,8 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\Auth\DefaultPasswordHasher;
+    
 
 /**
  * ArtistProfile Entity
@@ -16,8 +18,10 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Artist $artist
  */
+ 	
 class ArtistProfile extends Entity
 {
+	
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -28,6 +32,12 @@ class ArtistProfile extends Entity
      *
      * @var array
      */
+	 protected function _setPassword($password)
+    {
+        return (new DefaultPasswordHasher)->hash($password);
+    }
+
+	 
     protected $_accessible = [
         '*' => true,
         'id' => false
@@ -42,9 +52,3 @@ class ArtistProfile extends Entity
         'password'
     ];
 }
-
-use Cake\Auth\DefaultPasswordHasher;
-    protected function _setPassword($password)
-    {
-        return (new DefaultPasswordHasher)->hash($password);
-    }
