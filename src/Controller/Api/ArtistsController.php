@@ -6,6 +6,9 @@ class ArtistsController extends AppController
     public $paginate = [
         'page' => 1,
         'limit' => 500,
-        'maxLimit' => 500
+        'maxLimit' => 500,
+		'contain' => ['Parlours', 'Tags']
     ];
+	
+	
 }

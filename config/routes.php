@@ -49,6 +49,8 @@ Router::prefix('api', function ($routes) {
 	$routes->resources('Parlours');
 	$routes->resources('Posts');
 	$routes->resources('Tags');
+	$routes->resources('ArtistProfiles');
+	$routes->resources('ArtistsTags');
 });
 
 
