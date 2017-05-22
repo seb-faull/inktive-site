@@ -31,8 +31,9 @@ Router::prefix('api', function ($routes) {
 	$routes->resources('Posts');
 	$routes->resources('Tags');
 	$routes->resources('ArtistProfiles');
-	$routes->resources('ArtistsTags');	
-	//Router::connect('/api/artistprofiles/register', ['controller' => 'ArtistProfiles', 'action' => 'add', 'prefix' => 'api']);
+	$routes->resources('ArtistsTags');
+	
+	Router::connect('/api/artists/register', ['controller' => 'Artists', 'action' => 'add', 'prefix' => 'api']);
     $routes->fallbacks('InflectedRoute');
 });
 
