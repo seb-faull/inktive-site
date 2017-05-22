@@ -1,10 +1,13 @@
 <?php
 namespace App\Controller\Api;
+
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+
 class AppController extends Controller
 {
     use \Crud\Controller\ControllerTrait;
+	
     public $components = [
         'RequestHandler',
         'Crud.Crud' => [
@@ -21,4 +24,13 @@ class AppController extends Controller
             ]
         ]
     ];
+	
+	public function initialize()
+    {
+        parent::initialize();
+        
+	}
+		
+
+		
 }
