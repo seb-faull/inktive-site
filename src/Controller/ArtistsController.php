@@ -37,7 +37,7 @@ class ArtistsController extends AppController
     public function view($id = null)
     {
         $artist = $this->Artists->get($id, [
-            'contain' => ['Parlours', 'Tags', 'Posts']
+            'contain' => ['Parlours', 'Tags', 'ArtistProfiles', 'Posts']
         ]);
 
         $this->set('artist', $artist);

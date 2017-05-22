@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Artists Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Parlours
+ * @property \Cake\ORM\Association\HasMany $ArtistProfiles
  * @property \Cake\ORM\Association\HasMany $Posts
  * @property \Cake\ORM\Association\BelongsToMany $Tags
  *
@@ -46,6 +47,9 @@ class ArtistsTable extends Table
             'foreignKey' => 'parlour_id',
             'joinType' => 'INNER'
         ]);
+        $this->hasMany('ArtistProfiles', [
+            'foreignKey' => 'artist_id'
+        ]);
         $this->hasMany('Posts', [
             'foreignKey' => 'artist_id'
         ]);
@@ -76,6 +80,24 @@ class ArtistsTable extends Table
             ->requirePresence('last_name', 'create')
             ->notEmpty('last_name');
 
+        $validator
+            ->requirePresence('minimum_cost', 'create')
+            ->notEmpty('minimum_cost');
+
+        $validator
+            ->email('email')
+            ->requirePresence('email', 'create')
+            ->notEmpty('email');
+
+        $validator
+            ->requirePresence('password', 'create')
+            ->notEmpty('password');
+
+        $validator
+            ->boolean('active')
+            ->requirePresence('active', 'create')
+            ->notEmpty('active');
+
         return $validator;
     }
 
@@ -88,6 +110,7 @@ class ArtistsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->isUnique(['email']));
         $rules->add($rules->existsIn(['parlour_id'], 'Parlours'));
 
         return $rules;
