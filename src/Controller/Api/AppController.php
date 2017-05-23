@@ -47,14 +47,14 @@ class AppController extends Controller
             'storage' => 'Memory',
             'authenticate' => [
                 'Form' => [
-                    'scope' => ['Users.active' => 1]
+                    'scope' => ['Artists.active' => 1]
                 ],
                 'ADmad/JwtAuth.Jwt' => [
                     'parameter' => 'token',
-                    'userModel' => 'Users',
-                    'scope' => ['Users.active' => 1],
+                    'artistModel' => 'Artists',
+                    'scope' => ['Artists.active' => 1],
                     'fields' => [
-                        'username' => 'id'
+                        'email'/*''username*/ => 'id'
                     ],
                     'queryDatasource' => true
                 ]
