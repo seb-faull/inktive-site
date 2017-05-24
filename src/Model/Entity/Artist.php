@@ -44,4 +44,8 @@ class Artist extends Entity
     protected $_hidden = [
         'password'
     ];
+	
+	
+	
+	
 }

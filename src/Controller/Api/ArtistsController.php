@@ -35,8 +35,7 @@ public function add()
     return $this->Crud->execute();
 } 
 
-/*
-//Token request
+//Verify Token request
 public function token()
 {
     $artist = $this->Auth->identify();
@@ -54,7 +53,7 @@ public function token()
         ],
         '_serialize' => ['success', 'data']
     ]);
-} */
+}
       
     public $paginate = [
         'page' => 1,
