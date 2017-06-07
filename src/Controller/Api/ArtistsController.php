@@ -44,6 +44,7 @@ public function token()
     }
     $this->set([
         'success' => true,
+		'artist' => $artist,
         'data' => [
             'token' => JWT::encode([
                 'sub' => $artist['id'],
@@ -51,7 +52,7 @@ public function token()
             ],
             Security::salt())
         ],
-        '_serialize' => ['success', 'data']
+        '_serialize' => ['success', 'data', 'artist']
     ]);
 }
       
